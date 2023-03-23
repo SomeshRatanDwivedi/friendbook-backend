@@ -22,7 +22,6 @@ const corsOpts = {
 
 app.use(cors(corsOpts));
 
-//  app.use(express.static(path.join(__dirname, "../friendbook/build")));
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/images', express.static(__dirname + '/images'))

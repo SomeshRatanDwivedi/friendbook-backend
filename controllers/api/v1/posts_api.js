@@ -132,3 +132,25 @@ module.exports.getPosts = async (req, res) => {
         })
     }
 }
+
+
+module.exports.deletePost=async(req, res)=>{
+    const {post_id}=req.query;
+
+    try{
+        await Post.findByIdAndDelete(post_id);
+
+        return res.status(200).send({
+            message:`post of id ${post_id} is deleted`,
+            success:true
+        })
+
+    }catch(error){
+       console.log("err in deleting post", error);
+       return res.status(500).send({
+        message:'Internal server error',
+        success:false
+       })
+    }
+
+}

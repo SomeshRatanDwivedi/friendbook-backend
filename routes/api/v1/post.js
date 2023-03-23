@@ -9,6 +9,8 @@ const router=express.Router();
 
 router.post('/create', passport.authenticate('jwt', { session: false }), postController.create);
 
+router.delete('/delete_post', passport.authenticate('jwt', {session:false}), postController.deletePost);
+
 router.get('/', passport.authenticate('jwt', { session: false }), postController.getPosts);
 
 
